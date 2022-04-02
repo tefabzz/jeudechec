@@ -24,10 +24,14 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import pieces.*;
 
+import javax.sound.midi.Soundbank;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
 public class Render  extends Application {
     Echiquier echiquier = new Echiquier();
+
+
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -42,7 +46,9 @@ public class Render  extends Application {
         stage.setTitle("Chess Game");
         scene.setFill(Color.WHITE);
         GraphicsContext gc = canvas.getGraphicsContext2D();
-        draw(gc);
+
+
+       draw(gc);
 
         // création du zone de message
         Group sign = new Group();
@@ -51,6 +57,9 @@ public class Render  extends Application {
         sign.getChildren().add(panel);
         root.getChildren().add(sign);
         addButton(root);
+
+
+        // AFFICHAGE DES NOMS DES PIECES, LEURS COORDONNEES AINSI QUE LEURS DEPLACEMENTS POSSIBLES
         scene.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEventpositon) {
@@ -63,22 +72,38 @@ public class Render  extends Application {
                     x = (int) xm / 64;
                     y = (int) ym / 64;
 
-                    System.out.println("click at the position [" + y + "]" + "[" + x + "]");
+
+                    System.out.println(echiquier.pieceAtPos(x*64,y*64));
+                    System.out.println();
+
+                    System.out.println("La postion de la pièce est  [" + y + "]" + "[" + x + "]");
+                    Piece p = echiquier.pieceAtPos(x*64,y*64);
+                    System.out.println("la pièce est [ "+ p.getName() +"]");
+                    ArrayList<Position> positions = p.possibleMove(x,y);
+                    for (Position pos : positions){
+                        System.out.println("ses deplacements possibles sont ["+ pos.getX() + "]" + "[" + pos.getY() + "]");
+
+                        Rectangle panel2 = new Rectangle(pos.getY(),pos.getX(),64,64);
+                        panel2.setFill(Color.GREEN);
+                        sign.getChildren().add(panel2);
+
+                    }
+
+                    }
+
                 }
 
-
-
-            }
         });
 
-        
+
         stage.setScene(scene);
         stage.show();
 
     }
     private void draw(GraphicsContext gc){
+        // ECHIQUIER:
         boolean estBlanc = false;
-        boolean isrunning = false;
+
         for (int y = 0; y < 8; y++) {
             for (int x = 0; x < 8; x++) {
 
@@ -95,16 +120,16 @@ public class Render  extends Application {
         }
         ArrayList<Piece> blanc = echiquier.getBlancs();
         for (Piece piece : blanc){
-            gc.drawImage(piece.getSkin(), piece.getXp(), piece.getYp(),64,64);
+            gc.drawImage(piece.getSkin(), piece.getX(), piece.getY(),64,64);
         }
         ArrayList<Piece> noire = echiquier.getNoires();
         for (Piece piece : noire){
-            gc.drawImage(piece.getSkin(), piece.getXp(), piece.getYp(),64,64);
+            gc.drawImage(piece.getSkin(), piece.getX(), piece.getY(),64,64);
         }
 
 
     }
-
+        // les boutons Menu et Help
     private void addButton(Group root){
         Button button1 = new Button("Menu");
         Button button2 = new Button("Help");
@@ -130,6 +155,8 @@ public class Render  extends Application {
                 System.out.println("click");
             }
         });
+    }
+}
 
 //        private class Mytimer extends AnimationTimer{
 //            private long prevTime = 0;
@@ -145,32 +172,6 @@ public class Render  extends Application {
 //            }
 //
 //        }
-
-
-
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

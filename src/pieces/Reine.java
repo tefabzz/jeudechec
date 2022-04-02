@@ -4,6 +4,8 @@ package pieces;
 
 import javafx.scene.image.Image;
 
+import java.util.ArrayList;
+
 public class Reine extends Piece {
 
 
@@ -21,48 +23,8 @@ public class Reine extends Piece {
 
     }
 
-//    @Override
-//    public boolean possibleMove(int xp, int yp, int X, int Y) {
-//        return (cheminDiagonal(xp, yp, X, Y)) || chemin(xp, yp, X, Y);
-//    }
-//
-//    @Override
-//    public Boolean chemin(int xp, int yp, int X, int Y) {
-//        return null;
-//    }
-//    public Boolean cheminDiagonal(int xp, int yp, int X, int Y) {
-//        return ((Math.abs(xp - X) == Math.abs(yp - Y)));
-//    }
-
-
-
-
-//    @Override
-//    void move() {
-//
-//    }
+    @Override
+    public ArrayList<Position> possibleMove(int xp, int yp) {
+        return null;
+    }
 }
-
-
-
-
-
-
-
-
-
-
-//    private static Boolean cheminDiagonal(int departLigne, int departColonne, int arriveeligne,int arriveColonne) {
-//        return ((Math.abs(departLigne - arriveeligne) == Math.abs(departColonne - arriveColonne)));
-//    }
-//
-//    private static Boolean chemin(int departLigne, int departColonne, int arriveeligne,int arriveColonne) {
-//        return !((departLigne != arriveeligne) && (departColonne != arriveColonne));
-//    }
-//
-//
-//    public boolean deplacement(int departLigne, int departColonne, int arriveeligne,int arriveColonne) {
-//        return (cheminDiagonal(departLigne, departColonne, arriveeligne, arriveColonne))
-//                || chemin(departLigne, departColonne, arriveeligne, arriveColonne);
-//    }
-//}

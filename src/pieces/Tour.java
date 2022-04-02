@@ -6,6 +6,8 @@ package pieces;
 
 import javafx.scene.image.Image;
 
+import java.util.ArrayList;
+
 public class Tour extends Piece {
 
 
@@ -23,21 +25,8 @@ public class Tour extends Piece {
 
     }
 
-//    @Override
-//    public boolean possibleMove(int xp, int yp, int X, int Y) {
-//        return chemin(xp, yp, X, Y);
-//    }
-//
-//    @Override
-//    public Boolean chemin(int xp, int yp, int X, int Y) {
-//        return !((xp != X) && (yp != Y));
-//    }
-
-
-
-
-//    @Override
-//    void move() {
-//
-//    }
+    @Override
+    public ArrayList<Position> possibleMove(int xp, int yp) {
+        return null;
+    }
 }

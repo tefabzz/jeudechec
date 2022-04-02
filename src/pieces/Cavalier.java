@@ -2,6 +2,8 @@ package pieces;
 
 import javafx.scene.image.Image;
 
+import java.util.ArrayList;
+
 public class Cavalier extends Piece {
 
 
@@ -18,26 +20,13 @@ public class Cavalier extends Piece {
     void possibleMove() {
 
     }
+
+    @Override
+    public ArrayList<Position> possibleMove(int xp, int yp) {
+        return null;
+    }
 }
 
-//    @Override
-//    void move() {
-//        this.yp = this.yp +1;
-//        this.yp= this.yp + 2;
-
-
-//
-//    @Override
-//    public boolean possibleMove(int xp, int yp, int X, int Y) {
-//        return  chemin(xp, yp, X, Y);
-//    }
-//
-//    @Override
-//    public Boolean chemin(int xp, int yp, int X, int Y) {
-//        return ((Math.abs(xp - X) == 2 && Math.abs(yp- Y) == 1)
-//                || (Math.abs(xp - X) == 1 && Math.abs(yp- Y) == 2));
-//    }
-//}
 
 
 

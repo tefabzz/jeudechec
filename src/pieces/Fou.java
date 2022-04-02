@@ -3,6 +3,8 @@ package pieces;
 
 import javafx.scene.image.Image;
 
+import java.util.ArrayList;
+
 public class Fou extends Piece {
 
 
@@ -19,40 +21,10 @@ public class Fou extends Piece {
     void possibleMove() {
 
     }
-//
-//    @Override
-//    public boolean possibleMove(int xp, int yp, int X, int Y) {
-//        return chemin(xp, yp, X, Y);
-//    }
-//
-//
-//    @Override
-//    public Boolean chemin(int xp, int yp, int X, int Y) {
-//        return ((Math.abs(xp - X) == Math.abs(yp - Y)));
-//    }
 
-
-
-
-//    @Override
-//    void move() {
-//
-//    }
+    @Override
+    public ArrayList<Position> possibleMove(int xp, int yp) {
+        return null;
+    }
 }
-
-
-
-//    public int ValeurRelative() {
-//        return 3;
-//    }
-
-
-
-
-
-
-
-
-
-
 
