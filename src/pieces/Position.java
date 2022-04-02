@@ -1,5 +1,7 @@
 package pieces;
 
+import java.util.ArrayList;
+
 public class Position {
     private int X;
     private int Y;
@@ -25,6 +27,7 @@ public class Position {
     public void setY(int Y) {
         this.Y = Y;
     }
+
 
 
 }

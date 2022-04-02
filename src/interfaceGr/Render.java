@@ -82,8 +82,10 @@ public class Render  extends Application {
                     ArrayList<Position> positions = p.possibleMove(x,y);
                     for (Position pos : positions){
                         System.out.println("ses deplacements possibles sont ["+ pos.getX() + "]" + "[" + pos.getY() + "]");
+                        int i = pos.getX();
+                        int j = pos.getY();
 
-                        Rectangle panel2 = new Rectangle(pos.getY(),pos.getX(),64,64);
+                        Rectangle panel2 = new Rectangle(i,j,64,64);
                         panel2.setFill(Color.GREEN);
                         sign.getChildren().add(panel2);
 

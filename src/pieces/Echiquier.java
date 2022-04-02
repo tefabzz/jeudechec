@@ -24,6 +24,7 @@ public class Echiquier {
         return blancs;
     }
 
+
     /**
      * Renvoie la piece à la position x et y
      *
